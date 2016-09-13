@@ -8,9 +8,6 @@
 #include <cuda.h>
 #include <cuda_runtime.h>
 
-#define GLM_FORCE_CUDA
-#include <glm.hpp>
-
 #include "cuda_class.h"
 
 using namespace std;

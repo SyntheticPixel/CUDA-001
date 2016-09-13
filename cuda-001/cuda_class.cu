@@ -12,9 +12,6 @@
 #include <cuda.h>
 #include <cuda_runtime.h>
 
-#define GLM_FORCE_CUDA
-#include <glm.hpp>
-
 #include "cuda_class.h"
 
 using namespace std;
@@ -27,27 +24,33 @@ __device__ Base::~Base(){
 }
 
 __device__ Derived1::Derived1(){
+	printf(" Derived1 created\n");
 
 }
 
 __device__ Derived1::~Derived1(){
+	printf(" Derived1 deleted\n");
 
 }
 
 __device__ void Derived1::print(int i){
+	printf(description);
 	printf(" DERIVED_1 : %d\n", i);
 
 }
 
 __device__ Derived2::Derived2(){
+	printf(" Derived2 created\n");
 
 }
 
 __device__ Derived2::~Derived2(){
+	printf(" Derived2 deleted\n");
 
 }
 
 __device__ void Derived2::print(int i){
+	printf(description);
 	printf(" DERIVED_2 : %d\n", i);
 
 }
@@ -90,7 +93,8 @@ __device__ void Container::cleanup(){
 	int t = num_d1 + num_d2;
 	for(int i = 0; i < t; i++){
 		Base *p;
-		p = reinterpret_cast<Base *>(classes[i]);
+		//p = reinterpret_cast<Base *>(classes[i]);
+		p = classes[i];
 		if(p != NULL){
 			delete p;
 			printf(" deleted pointer %d of %d\n", i, t);

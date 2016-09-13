@@ -18,9 +18,6 @@
 #include <cuda.h>
 #include <cuda_runtime.h>
 
-#define GLM_FORCE_CUDA
-#include <glm.hpp>
-
 using namespace std;
 
 // Abstract class
@@ -43,6 +40,8 @@ public:
 	__device__ ~Derived1();
 
 	__device__ void print(int i);
+
+	const char *description = " I am class Derived 1";
 private:
 protected:
 
@@ -53,6 +52,8 @@ public:
 	__device__ Derived2();
 	__device__ ~Derived2();
 	__device__ void print(int i);
+
+	const char *description = " I am class Derived 2";
 private:
 protected:
 
