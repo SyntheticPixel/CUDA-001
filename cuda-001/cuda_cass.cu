@@ -35,9 +35,28 @@ Derived1::~Derived1(){
 
 }
 
+void Derived1::print(){
+	cout << "DERIVED1" << std::endl;
+
+}
+
+Derived2::Derived2(){
+	cout << "DERIVED2" << std::endl;
+
+}
+
+Derived2::~Derived2(){
+
+}
+
+void Derived2::print(){
+
+}
+
 Container::Container(){
 	bases = NULL;
-	derivations = NULL;
+	d1 = NULL;
+	d2 = NULL;
 
 }
 

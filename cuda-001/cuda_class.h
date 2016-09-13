@@ -41,6 +41,19 @@ class Derived1: public Base{
 public:
 	Derived1();
 	~Derived1();
+
+	void print();
+private:
+protected:
+
+};
+
+class Derived2: public Base{
+public:
+	Derived2();
+	~Derived2();
+
+	void print();
 private:
 protected:
 
@@ -52,7 +65,8 @@ public:
 	~Container();
 
 	Base 		*bases;
-	Derived1 	*derivations;
+	Derived1 	*d1;
+	Derived2	*d2;
 private:
 protected:
 };
