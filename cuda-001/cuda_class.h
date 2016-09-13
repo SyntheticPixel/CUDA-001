@@ -26,10 +26,10 @@ using namespace std;
 // Abstract class
 class Base{
 public:
-	Base();
-	virtual ~Base() = 0;
+	__device__ Base();
+	__device__ virtual ~Base() = 0;
 
-	virtual void print() = 0;
+	__device__ virtual void print() = 0;
 
 private:
 protected:
@@ -39,10 +39,10 @@ protected:
 // Derived from Base
 class Derived1: public Base{
 public:
-	Derived1();
-	~Derived1();
+	__device__ Derived1();
+	__device__ ~Derived1();
 
-	void print();
+	__device__ void print();
 private:
 protected:
 
@@ -50,10 +50,10 @@ protected:
 
 class Derived2: public Base{
 public:
-	Derived2();
-	~Derived2();
+	__device__ Derived2();
+	__device__ ~Derived2();
 
-	void print();
+	__device__ void print();
 private:
 protected:
 
@@ -64,7 +64,8 @@ public:
 	Container();
 	~Container();
 
-	void init(int d1, int d2);
+	 __device__ void init(int d1, int d2);
+	 __device__ void cleanup();
 
 	int num_d1;
 	int num_d2;

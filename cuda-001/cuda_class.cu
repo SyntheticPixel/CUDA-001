@@ -19,37 +19,37 @@
 
 using namespace std;
 
-Base::Base(){
+__device__ Base::Base(){
 
 }
 
-Base::~Base(){
+__device__ Base::~Base(){
 
 }
 
-Derived1::Derived1(){
+__device__ Derived1::Derived1(){
 
 }
 
-Derived1::~Derived1(){
+__device__ Derived1::~Derived1(){
 
 }
 
-void Derived1::print(){
-	cout << " DERIVED_1" << std::endl;
+__device__ void Derived1::print(){
+	printf(" DERIVED_1\n");
 
 }
 
-Derived2::Derived2(){
-	cout << " DERIVED_2" << std::endl;
+__device__ Derived2::Derived2(){
 
 }
 
-Derived2::~Derived2(){
+__device__ Derived2::~Derived2(){
 
 }
 
-void Derived2::print(){
+__device__ void Derived2::print(){
+	printf(" DERIVED_2\n");
 
 }
 
@@ -67,7 +67,12 @@ Container::~Container(){
 
 }
 
-Container::init(int d1, int d2){
-	num_d1 = d1;
-	num_d2 = d2;
+__device__ void Container::init(int amount1, int amount2){
+	d1 = new Derived1[amount1];
+	d2 = new Derived2[amount2];
+}
+
+__device__ void Container::cleanup(){
+	if(d1 != NULL) delete[] d1;
+	if(d2 != NULL) delete[] d2;
 }

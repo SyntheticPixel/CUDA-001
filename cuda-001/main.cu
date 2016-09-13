@@ -22,19 +22,24 @@ using namespace std;
 #  include <windows.h>
 #endif
 
+
 __global__ void KERNEL_SETUP(Container *container){
-	container->d1 = new Derived1();
-	container->d2 = new Derived2();
+	container->init(5,5);
 
 }
 
 __global__ void KERNEL_CLEANUP(Container *container){
-	if(container->d1 != NULL) delete(d1);
-	if(container->d2 != NULL) delete(d2);
-
+	container->cleanup();
 }
 
 __global__ void KERNEL_MAIN(Container *container){
+	for(int i=0; i< container->num_d1; i++){
+		container->d1[i].print();
+	}
+
+	for(int i=0; i< container->num_d2; i++){
+		container->d2[i].print();
+	}
 
 }
 
@@ -51,9 +56,6 @@ int main(int argc, const char * argv[]){
 		cout << "Error : " << resultString << std::endl;
 	}
 
-	// init container with 5 derived classes each
-	c->init(5,5);
-
 	KERNEL_SETUP<<<1,1>>>(c);
 	cudaDeviceSynchronize();
 	result = cudaGetLastError();
@@ -61,6 +63,7 @@ int main(int argc, const char * argv[]){
 		resultString = cudaGetErrorString(result);
 		cout << "Error : " << resultString << std::endl;
 	}
+	cout << "SETUP OK..." << std::endl;
 
 	KERNEL_MAIN<<<1,1>>>(c);
 	cudaDeviceSynchronize();
@@ -69,6 +72,7 @@ int main(int argc, const char * argv[]){
 		resultString = cudaGetErrorString(result);
 		cout << "Error : " << resultString << std::endl;
 	}
+	cout << "MAIN OK..." << std::endl;
 
 	KERNEL_CLEANUP<<<1,1>>>(c);
 	cudaDeviceSynchronize();
@@ -84,6 +88,7 @@ int main(int argc, const char * argv[]){
 		resultString = cudaGetErrorString(result);
 		cout << "Error : " << resultString << std::endl;
 	}
+	cout << "CLEANUP OK..." << std::endl;
 
 	// get outta here
 	cudaDeviceReset();
