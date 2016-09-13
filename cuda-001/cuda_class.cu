@@ -20,19 +20,19 @@
 using namespace std;
 
 __device__ Base::Base(){
+	printf("0");
 
 }
 
 __device__ Base::~Base(){
-
+	printf("0");
 }
 
-/*
+
 __device__ void Base::print(int i){
 	printf(" BASE : %d\n", i);
 
 }
-*/
 
 __device__ Derived1::Derived1(){
 	printf("1");
@@ -40,6 +40,7 @@ __device__ Derived1::Derived1(){
 }
 
 __device__ Derived1::~Derived1(){
+	printf("-1");
 
 }
 
@@ -54,6 +55,7 @@ __device__ Derived2::Derived2(){
 }
 
 __device__ Derived2::~Derived2(){
+	printf("-2");
 }
 
 __device__ void Derived2::print(int i){
@@ -66,9 +68,7 @@ Container::Container(){
 	num_d1 = 0;
 	num_d2 = 0;
 
-	d1 = NULL;
-	d2 = NULL;
-
+	classes = NULL;
 }
 
 Container::~Container(){
@@ -76,18 +76,35 @@ Container::~Container(){
 }
 
 __device__ void Container::init(int amount1, int amount2){
-	num_d1 = amount1;
-	d1 = new Derived1[amount1];
-	printf("\n");
 
-	num_d2 = amount2;
-	d2 = new Derived2[amount2];
-	printf("\n");
+	// add the claases to the vector
+
+	int t = amount1 + amount2;
+	classes = new Base*[t];
+
+	for(int i = 0; i < amount1; i++){
+		classes[i] = new Derived1();
+		printf("\n");
+	}
+
+	for(int i = amount1; i < amount1+amount2; i++){
+		classes[i] = new Derived2();
+		printf("\n");
+	}
 }
 
 __device__ void Container::cleanup(){
-	if(d1 != NULL) delete[] d1;
-	if(d2 != NULL) delete[] d2;
+
+	// delete all instances
+	int t = num_d1 + num_d2;
+	for(int i = 0; i < t; i++){
+		Base * p;
+		p = classes[i];
+		if(p != NULL) delete p;
+	}
+
+	// delete the master pointer
+	if(classes != NULL) delete[] classes;
 
 	num_d1 = 0;
 	num_d2 = 0;

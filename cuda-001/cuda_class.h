@@ -18,6 +18,8 @@
 #include <cuda.h>
 #include <cuda_runtime.h>
 
+#include <thrust/device_vector.h>
+
 #define GLM_FORCE_CUDA
 #include <glm.hpp>
 
@@ -52,26 +54,26 @@ class Derived2: public Base{
 public:
 	__device__ Derived2();
 	__device__ ~Derived2();
-
 	__device__ void print(int i);
 private:
 protected:
 
 };
 
+// Wrapper class
 class Container{
 public:
 	Container();
 	~Container();
 
-	 __device__ void init(int d1, int d2);
-	 __device__ void cleanup();
+	__device__ void init(int d1, int d2);
+	__device__ void cleanup();
 
-	int num_d1;
-	int num_d2;
+	int			num_d1;
+	int 		num_d2;
 
-	Derived1 	*d1;
-	Derived2	*d2;
+	// array of pointers to derived classes
+	Base**		classes;
 private:
 protected:
 };

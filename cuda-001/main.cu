@@ -37,18 +37,12 @@ __global__ void KERNEL_MAIN(Container *container){
 	int a = container->num_d1;
 	int b = container->num_d2;
 
-	printf("MAIN : %d / %d \n", a, b);
-
-	for(int i=0; i < container->num_d1; i++){
-		container->d1[i].print(i);
-		printf("%d\n", i);
+	for(int i=0; i < a+b; i++){
+		void *b = container->classes[i];
+		Base *p;
+		p = reinterpret_cast<Base*>(b);
+		p->print(i);
 	}
-
-	for(int i=0; i < container->num_d2; i++){
-		container->d2[i].print(i);
-		printf("%d\n", i);
-	}
-
 }
 
 int main(int argc, const char * argv[]){
