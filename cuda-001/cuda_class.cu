@@ -36,12 +36,12 @@ Derived1::~Derived1(){
 }
 
 void Derived1::print(){
-	cout << "DERIVED1" << std::endl;
+	cout << " DERIVED_1" << std::endl;
 
 }
 
 Derived2::Derived2(){
-	cout << "DERIVED2" << std::endl;
+	cout << " DERIVED_2" << std::endl;
 
 }
 
@@ -54,7 +54,10 @@ void Derived2::print(){
 }
 
 Container::Container(){
-	bases = NULL;
+
+	num_d1 = 0;
+	num_d2 = 0;
+
 	d1 = NULL;
 	d2 = NULL;
 
@@ -62,4 +65,9 @@ Container::Container(){
 
 Container::~Container(){
 
+}
+
+Container::init(int d1, int d2){
+	num_d1 = d1;
+	num_d2 = d2;
 }

@@ -64,7 +64,11 @@ public:
 	Container();
 	~Container();
 
-	Base 		*bases;
+	void init(int d1, int d2);
+
+	int num_d1;
+	int num_d2;
+
 	Derived1 	*d1;
 	Derived2	*d2;
 private:
