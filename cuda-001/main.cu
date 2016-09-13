@@ -24,7 +24,7 @@ using namespace std;
 
 
 __global__ void KERNEL_SETUP(Container *container){
-	container->init(10,5);
+	container->init(2,2);
 
 }
 
@@ -34,13 +34,11 @@ __global__ void KERNEL_CLEANUP(Container *container){
 
 __global__ void KERNEL_MAIN(Container *container){
 
-	int a = container->num_d1;
-	int b = container->num_d2;
+	int t = container->num_d1 + container->num_d2;
+	Base *p;
 
-	for(int i=0; i < a+b; i++){
-		void *b = container->classes[i];
-		Base *p;
-		p = reinterpret_cast<Base*>(b);
+	for(int i=0; i < t; i++){
+		p = container->classes[i];
 		p->print(i);
 	}
 }
