@@ -1,3 +1,10 @@
 /Debug/
 
 cuda-001/.DS_Store
+x64/Release/cudart64_75.dll
+*.dll
+cuda-001/x64/Release/cuda-001.log
+*.log
+cuda-001/vc120.pdb
+*.sdf
+cuda-001.opensdf
