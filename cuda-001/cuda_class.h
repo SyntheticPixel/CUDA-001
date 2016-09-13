@@ -29,7 +29,7 @@ public:
 	__device__ Base();
 	__device__ virtual ~Base() = 0;
 
-	__device__ virtual void print() = 0;
+	__device__ virtual void print(int i) = 0;
 
 private:
 protected:
@@ -42,7 +42,7 @@ public:
 	__device__ Derived1();
 	__device__ ~Derived1();
 
-	__device__ void print();
+	__device__ void print(int i);
 private:
 protected:
 
@@ -53,7 +53,7 @@ public:
 	__device__ Derived2();
 	__device__ ~Derived2();
 
-	__device__ void print();
+	__device__ void print(int i);
 private:
 protected:
 

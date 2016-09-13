@@ -24,7 +24,7 @@ using namespace std;
 
 
 __global__ void KERNEL_SETUP(Container *container){
-	container->init(5,5);
+	container->init(10,5);
 
 }
 
@@ -33,12 +33,20 @@ __global__ void KERNEL_CLEANUP(Container *container){
 }
 
 __global__ void KERNEL_MAIN(Container *container){
-	for(int i=0; i< container->num_d1; i++){
-		container->d1[i].print();
+
+	int a = container->num_d1;
+	int b = container->num_d2;
+
+	printf("MAIN : %d / %d \n", a, b);
+
+	for(int i=0; i < container->num_d1; i++){
+		container->d1[i].print(i);
+		printf("%d\n", i);
 	}
 
-	for(int i=0; i< container->num_d2; i++){
-		container->d2[i].print();
+	for(int i=0; i < container->num_d2; i++){
+		container->d2[i].print(i);
+		printf("%d\n", i);
 	}
 
 }
