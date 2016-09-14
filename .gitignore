@@ -8,3 +8,4 @@ cuda-001/x64/Release/cuda-001.log
 cuda-001/vc120.pdb
 *.sdf
 cuda-001.opensdf
+/Release/

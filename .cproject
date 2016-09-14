@@ -30,6 +30,7 @@
 								<option id="nvcc.compiler.include.paths.794041641" name="Include paths (-I)" superClass="nvcc.compiler.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/Developer/NVIDIA/CUDA-7.5/include/glm"/>
 								</option>
+								<option id="nvcc.compiler.cpp11option.1471926529" name="Enable C++11 support (-std=c++11)" superClass="nvcc.compiler.cpp11option" value="true" valueType="boolean"/>
 								<inputType id="nvcc.compiler.input.cu.408495988" superClass="nvcc.compiler.input.cu"/>
 								<inputType id="nvcc.compiler.input.cpp.1248021750" superClass="nvcc.compiler.input.cpp"/>
 								<inputType id="nvcc.compiler.input.c.1237208693" superClass="nvcc.compiler.input.c"/>
@@ -46,6 +47,13 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="com.nvidia.cuda.ide.seven_five.configuration.debug.1208456322.484171632" name="cuda-001.sln" rcbsApplicability="disable" resourcePath="cuda-001.sln" toolsToInvoke=""/>
+					<fileInfo id="com.nvidia.cuda.ide.seven_five.configuration.debug.1208456322.1321762715" name="cuda-001.v12.suo" rcbsApplicability="disable" resourcePath="cuda-001.v12.suo" toolsToInvoke=""/>
+					<fileInfo id="com.nvidia.cuda.ide.seven_five.configuration.debug.1208456322.702956298" name="cuda-001.vcxproj" rcbsApplicability="disable" resourcePath="cuda-001/cuda-001.vcxproj" toolsToInvoke=""/>
+					<fileInfo id="com.nvidia.cuda.ide.seven_five.configuration.debug.1208456322.221129708" name="README.md" rcbsApplicability="disable" resourcePath="README.md" toolsToInvoke=""/>
+					<sourceEntries>
+						<entry excluding="cuda-001/cuda-001.vcxproj|cuda-001.sln|cuda-001.v12.suo|README.md" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="com.nvidia.cuda.ide.build.project.ICudaProjectConfiguration">
@@ -86,6 +94,7 @@
 								<option id="nvcc.compiler.include.paths.1735835737" name="Include paths (-I)" superClass="nvcc.compiler.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/Developer/NVIDIA/CUDA-7.5/include/glm"/>
 								</option>
+								<option id="nvcc.compiler.cpp11option.1020171175" name="Enable C++11 support (-std=c++11)" superClass="nvcc.compiler.cpp11option" value="true" valueType="boolean"/>
 								<inputType id="nvcc.compiler.input.cu.130443375" superClass="nvcc.compiler.input.cu"/>
 								<inputType id="nvcc.compiler.input.cpp.2094575530" superClass="nvcc.compiler.input.cpp"/>
 								<inputType id="nvcc.compiler.input.c.1914399002" superClass="nvcc.compiler.input.c"/>
@@ -102,13 +111,21 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="com.nvidia.cuda.ide.seven_five.configuration.release.1795565404.897166586" name="cuda-001.sln" rcbsApplicability="disable" resourcePath="cuda-001.sln" toolsToInvoke=""/>
+					<fileInfo id="com.nvidia.cuda.ide.seven_five.configuration.release.1795565404.243592375" name="cuda-001.v12.suo" rcbsApplicability="disable" resourcePath="cuda-001.v12.suo" toolsToInvoke=""/>
+					<fileInfo id="com.nvidia.cuda.ide.seven_five.configuration.release.1795565404.1968975872" name="cuda-001.vcxproj" rcbsApplicability="disable" resourcePath="cuda-001/cuda-001.vcxproj" toolsToInvoke=""/>
+					<fileInfo id="com.nvidia.cuda.ide.seven_five.configuration.release.1795565404.1890564831" name="README.md" rcbsApplicability="disable" resourcePath="README.md" toolsToInvoke=""/>
+					<sourceEntries>
+						<entry excluding="cuda-001/cuda-001.vcxproj|cuda-001.sln|cuda-001.v12.suo|README.md" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="com.nvidia.cuda.ide.build.project.ICudaProjectConfiguration">
-				<executable devicelink="false">
+				<executable devicelink="true">
 					<sass major="3" minor="0"/>
 					<ptx major="3" minor="0"/>
 				</executable>
+				<editor-arch major="3" minor="0"/>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
@@ -146,4 +163,5 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.nvidia.cuda.ide.build.NVCCPerProjectProfile"/>
 		</scannerConfigBuildInfo>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>
