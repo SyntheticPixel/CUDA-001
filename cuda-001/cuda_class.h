@@ -41,7 +41,7 @@ public:
 
 	__device__ void print(int i);
 
-	const char *description = " I am class Derived 1";
+	const char *description = " I am class Derived 1, hear me roar!!";
 private:
 protected:
 
@@ -53,7 +53,7 @@ public:
 	__device__ ~Derived2();
 	__device__ void print(int i);
 
-	const char *description = " I am class Derived 2";
+	const char *description = " I am class Derived 2, hear me roar!!";
 private:
 protected:
 
